@@ -1,14 +1,14 @@
 #include "Client.hpp"
 #include <iostream>
+#include <exception>
 
-Client::Client()
-{
-
-}
+Client::Client() : restaurant(nullptr), pizza(nullptr)
+{}
 
 Client::~Client()
 {
-
+	delete restaurant;
+	delete pizza;
 }
 
 void Client::showMenu()
@@ -27,5 +27,8 @@ void Client::showMenu()
 	{
 		menu.showMrPizza();
 	}
-
+	else
+	{
+		throw std::invalid_argument(restaurant + " number doesn't exist!");
+	}
 }

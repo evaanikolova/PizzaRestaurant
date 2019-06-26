@@ -10,12 +10,16 @@ void Menu::showRestaurants()
 
 void Menu::showDominos()
 {
-	std::cout << "Showing Dominos menu..." << std::endl;
+	std::cout << "Hawai /tomato sauce, mozzarella, smoked ham, pineapple/\t10.90$" << std::endl;
+	std::cout << "Margaritta /tomato sauce, extra mozzarella/\t10.00$" << std::endl;
+	std::cout << "Peperoni /tomato sauce, extra mozzarella, extra pepperoni/\t13.90$";
 }
 
 void Menu::showMrPizza()
 {
-	std::cout << "Showing Mr.Pizza menu..." << std::endl;
+	std::cout << "Hawai /italian dough, cream, smoked bacon, pineapple/\t13.90$" << std::endl;
+	std::cout << "Margaritta /italian dough, tomato sauce, mozzarella, oregano/\t5.90$" << std::endl;
+	std::cout << "Peperoni /italian dough, tomato sauce, mozzarella, spicy peperoni salami/\t9.90$";
 }
 
 void Menu::showToppings()

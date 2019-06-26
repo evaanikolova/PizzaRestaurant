@@ -2,6 +2,8 @@
 #define CLIENT_HPP
 
 #include "Menu.hpp"
+#include "PizzaRestaurant.hpp"
+#include "Pizza.hpp"
 #include <iostream>
 #include <unordered_map>
 
@@ -11,13 +13,14 @@ public:
 	Client();
 	~Client();
 
-	//void chooseRestaurant();
-	//void choosePizza();
-	//void addToppings();
+	void chooseRestaurant();
+	void choosePizza();
+	void addToppings();
 
 	void showMenu();
 private:
-	
+	PizzaRestaurant* restaurant;
+	Pizza* pizza;
 };
 
 #endif
