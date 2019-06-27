@@ -42,3 +42,12 @@ Pizza* DominosRestaurant::getMostOrderedPizza()
 {
 	return new DominosMargaritta();
 }
+
+void DominosRestaurant::showMenu()
+{
+	std::cout << "Hawai /tomato sauce, mozzarella, smoked ham, pineapple/\t10.90$" << std::endl;
+	std::cout << "Margaritta /tomato sauce, extra mozzarella/\t10.00$" << std::endl;
+	std::cout << "Peperoni /tomato sauce, extra mozzarella, extra pepperoni/\t13.90$" << std::endl;
+
+	std::cout << "Please, choose a pizza by typing the name: ";
+}

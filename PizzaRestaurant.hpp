@@ -13,6 +13,8 @@ public:
 
 	virtual Pizza* createPizza(std::string pizzaName) = 0;
 	virtual Pizza* getMostOrderedPizza() = 0;
+	
+	virtual void showMenu() = 0;
 };
 
 #endif

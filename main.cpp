@@ -11,7 +11,7 @@ int main()
 {
 	Client client;
 
-	client.showMenu();
+	client.makeOrder();
 
 	/*Pizza* dominosPizza = new DominosMargaritta();
 	std::cout << dominosPizza->getName() << " " << dominosPizza->getPrice();
