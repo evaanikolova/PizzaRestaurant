@@ -1,11 +1,11 @@
 #include "MrPizzaPeperoni.hpp"
 
-MrPizzaPeperoni::MrPizzaPeperoni() : name("Peperoni /italian dough, tomato sauce, mozzarella, spicy peperoni salami/"), price(9.90)
+MrPizzaPeperoni::MrPizzaPeperoni() : description("Peperoni /italian dough, tomato sauce, mozzarella, spicy peperoni salami/"), price(9.90)
 {}
 
-std::string MrPizzaPeperoni::getName()
+std::string MrPizzaPeperoni::getDescription()
 {
-	return name;
+	return description;
 }
 
 double MrPizzaPeperoni::getPrice()

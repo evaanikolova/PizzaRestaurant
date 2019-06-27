@@ -4,7 +4,7 @@
 #include "MrPizzaPeperoni.hpp"
 #include <exception>
 
-MrPizzaRestaurant::MrPizzaRestaurant() : mostOrderedPizza(nullptr)
+MrPizzaRestaurant::MrPizzaRestaurant() : PizzaRestaurant(), mostOrderedPizza(nullptr)
 {
 	initPizzas();
 }
@@ -45,9 +45,11 @@ Pizza* MrPizzaRestaurant::getMostOrderedPizza()
 
 void MrPizzaRestaurant::showMenu()
 {
-	std::cout << "Hawai /italian dough, cream, smoked bacon, pineapple/\t13.90$" << std::endl;
-	std::cout << "Margaritta /italian dough, tomato sauce, mozzarella, oregano/\t5.90$" << std::endl;
-	std::cout << "Peperoni /italian dough, tomato sauce, mozzarella, spicy peperoni salami/\t9.90$" << std::endl;
+	std::unordered_map<std::string, Pizza*>::iterator i;
+	for (i = pizzas.begin(); i != pizzas.end(); ++i)
+	{
+		std::cout << i->second->getDescription() << "\t" << i->second->getPrice() << "$" << std::endl;
+	}
 
 	std::cout << "Please, choose a pizza by typing the name: ";
 }

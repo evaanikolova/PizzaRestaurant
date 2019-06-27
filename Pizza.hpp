@@ -10,7 +10,7 @@ public:
 	Pizza() = default;
 	~Pizza() = default;
 
-	virtual std::string getName() = 0;
+	virtual std::string getDescription() = 0;
 	virtual double getPrice() = 0;
 };
 

@@ -4,7 +4,7 @@
 #include "DominosPeperoni.hpp"
 #include <exception>
 
-DominosRestaurant::DominosRestaurant() : mostOrderedPizza(nullptr)
+DominosRestaurant::DominosRestaurant() : PizzaRestaurant(), mostOrderedPizza(nullptr)
 {
 	initPizzas();
 }
@@ -45,9 +45,11 @@ Pizza* DominosRestaurant::getMostOrderedPizza()
 
 void DominosRestaurant::showMenu()
 {
-	std::cout << "Hawai /tomato sauce, mozzarella, smoked ham, pineapple/\t10.90$" << std::endl;
-	std::cout << "Margaritta /tomato sauce, extra mozzarella/\t10.00$" << std::endl;
-	std::cout << "Peperoni /tomato sauce, extra mozzarella, extra pepperoni/\t13.90$" << std::endl;
+	std::unordered_map<std::string, Pizza*>::iterator i;
+	for (i = pizzas.begin(); i != pizzas.end(); ++i)
+	{
+		std::cout << i->second->getDescription() << "\t" << i->second->getPrice() << "$" << std::endl;
+	}
 
 	std::cout << "Please, choose a pizza by typing the name: ";
 }

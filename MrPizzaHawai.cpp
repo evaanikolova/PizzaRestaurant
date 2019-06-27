@@ -1,11 +1,11 @@
 #include "MrPizzaHawai.hpp"
 
-MrPizzaHawai::MrPizzaHawai() : name("Hawai /italian dough, cream, smoked bacon, pineapple/"), price(13.90)
+MrPizzaHawai::MrPizzaHawai() : description("Hawai /italian dough, cream, smoked bacon, pineapple/"), price(13.90)
 {}
 
-std::string MrPizzaHawai::getName()
+std::string MrPizzaHawai::getDescription()
 {
-	return name;
+	return description;
 }
 
 double MrPizzaHawai::getPrice()

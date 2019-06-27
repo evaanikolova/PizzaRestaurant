@@ -21,6 +21,7 @@ private:
 	void chooseRestaurant();
 	void choosePizza();
 	void addToppings();
+	void confirmOrder();
 };
 
 #endif

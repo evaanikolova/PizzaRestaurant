@@ -2,19 +2,25 @@
 #define PIZZARESTAURANT_HPP
 
 #include "Pizza.hpp"
-#include <iostream>
-#include <string>
+#include "ToppingsDecorator.hpp"
+#include <unordered_map>
 
 class PizzaRestaurant
 {
 public:
-	PizzaRestaurant() = default;
+	PizzaRestaurant();
 	virtual ~PizzaRestaurant() = default;
 
 	virtual Pizza* createPizza(std::string pizzaName) = 0;
 	virtual Pizza* getMostOrderedPizza() = 0;
-	
+	virtual Pizza* addTopping(Pizza* pizza, std::string topping);
+
 	virtual void showMenu() = 0;
+	virtual void showToppings();
+private:
+	std::unordered_map<std::string, ToppingsDecorator*> toppings;
+
+	void initToppings();
 };
 
 #endif

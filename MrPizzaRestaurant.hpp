@@ -3,6 +3,7 @@
 
 #include "Pizza.hpp"
 #include "PizzaRestaurant.hpp"
+#include "ToppingsDecorator.hpp"
 #include <unordered_map>
 
 class MrPizzaRestaurant : public PizzaRestaurant

@@ -11,10 +11,10 @@ public:
 	MrPizzaHawai();
 	virtual ~MrPizzaHawai() = default;
 
-	virtual std::string getName() override;
+	virtual std::string getDescription() override;
 	virtual double getPrice() override;
 private:
-	std::string name;
+	std::string description;
 	double price;
 };
 
