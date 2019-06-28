@@ -4,14 +4,13 @@
 #include "DominosPeperoni.hpp"
 #include <exception>
 
-DominosRestaurant::DominosRestaurant() : PizzaRestaurant(), mostOrderedPizza(nullptr)
+DominosRestaurant::DominosRestaurant() : PizzaRestaurant()
 {
 	initPizzas();
 }
 
 DominosRestaurant::~DominosRestaurant()
 {
-	//delete mostOrderedPizza;
 	std::unordered_map<std::string, Pizza*>::iterator i;
 	for (i = pizzas.begin(); i != pizzas.end(); ++i)
 	{
@@ -34,7 +33,7 @@ Pizza* DominosRestaurant::createPizza(std::string pizza)
 	}
 	else
 	{
-		throw std::invalid_argument(pizza + " doesn't exist!");
+		throw std::invalid_argument(pizza + " pizza doesn't exist!");
 	}
 }
 

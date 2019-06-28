@@ -17,5 +17,5 @@ std::string DijonMustard::getDescription()
 
 double DijonMustard::getPrice()
 {
-	return this->pizza->getPrice() + 1.99;
+	return this->pizza->getPrice() + 1.90;
 }

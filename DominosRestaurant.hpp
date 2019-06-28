@@ -18,7 +18,6 @@ public:
 
 private:
 	std::unordered_map<std::string, Pizza*> pizzas;
-	Pizza* mostOrderedPizza;
 
 	void initPizzas();
 };

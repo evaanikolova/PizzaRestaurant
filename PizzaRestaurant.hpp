@@ -9,7 +9,7 @@ class PizzaRestaurant
 {
 public:
 	PizzaRestaurant();
-	virtual ~PizzaRestaurant() = default;
+	virtual ~PizzaRestaurant();
 
 	virtual Pizza* createPizza(std::string pizzaName) = 0;
 	virtual Pizza* getMostOrderedPizza() = 0;
@@ -20,7 +20,7 @@ public:
 private:
 	std::unordered_map<std::string, ToppingsDecorator*> toppings;
 
-	void initToppings();
+	void initToppings(Pizza* pizza);
 };
 
 #endif

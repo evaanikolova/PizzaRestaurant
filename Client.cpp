@@ -1,10 +1,10 @@
 #include "Client.hpp"
 #include "DominosRestaurant.hpp"
 #include "MrPizzaRestaurant.hpp"
-#include "DijonMustard.hpp"
 #include <iostream>
 #include <exception>
 #include <unistd.h>
+#include <stdlib.h>
 
 Client::Client() : restaurant(nullptr), pizza(nullptr)
 {}
@@ -32,7 +32,7 @@ void Client::chooseRestaurant()
 	}
 	else
 	{
-		throw std::invalid_argument(restaurantNumber + " number doesn't exist!\n");
+		throw std::invalid_argument("Number doesn't exist!");
 	}
 }
 
@@ -51,7 +51,7 @@ void Client::choosePizza()
 	}
 	catch (std::invalid_argument& ia)
 	{
-		std::cout << ia.what();
+		throw std::invalid_argument(ia.what());
 	}
 }
 
@@ -64,13 +64,12 @@ void Client::addToppings()
 		std::cout << "Would you like to add some more toppings to your pizza? Type y or n: ";
 		std::cin >> addMoreToppings;
 
+		std::cin.get();
+
 		if (addMoreToppings == 'y')
 		{
 			this->restaurant->showToppings();
 
-			std::cin.get();
-
-			std::cout << "Please, choose a topping by typing the name: ";
 			std::string topping;
 			std::getline(std::cin, topping);
 
@@ -78,31 +77,36 @@ void Client::addToppings()
 			{
 				this->pizza = this->restaurant->addTopping(this->pizza, topping);
 				std::cout << "Adding topping " + topping + "..." << std::endl;
-
-				std::cout << "Current order: ";
-				std::cout << this->pizza->getDescription() << "\t" << this->pizza->getPrice() << "$" << std::endl;
-				
 				sleep(3);
+				
+				std::cout << "Current order: ";
+				this->checkOrder();
 			}
 			catch (std::invalid_argument& ia)
 			{
-				std::cout << ia.what();
+				throw std::invalid_argument(ia.what());
 			}			
 		}
 		else if (addMoreToppings == 'n')
 		{
-			std::cout <<"EHo";
+			std::cout <<"No more toppings, ok." << std::endl;
 			break;
 		}
 		else
 		{
-			throw std::invalid_argument("You should type y or n!.");
+			throw std::invalid_argument("You should type y or n!");
 		}
 	}
 }
 
+void Client::checkOrder()
+{
+	std::cout << this->pizza->getDescription() << "\t" << this->pizza->getPrice() << "$" << std::endl;
+}
+
 void Client::confirmOrder()
 {
+	this->checkOrder();
 	std::cout << "This is your final order. Are you sure? Type y or n: ";
 
 	char finishOrder;
@@ -118,7 +122,7 @@ void Client::confirmOrder()
 	}
 	else
 	{
-		throw std::invalid_argument("You should type y or n!.");
+		throw std::invalid_argument("You should type y or n!");
 	}
 }
 
@@ -126,6 +130,7 @@ void Client::showRestaurants()
 {
 	std::cout << "(1) Dominos" << std::endl;
 	std::cout << "(2) MrPizza" << std::endl;
+
 	std::cout << "Please, choose a restaurant by typing the number: ";
 }
 
@@ -137,7 +142,7 @@ void Client::makeOrder()
 	}
 	catch (std::invalid_argument& ia)
 	{
-		std::cout << ia.what();
+		throw std::invalid_argument(ia.what());
 	}
 	try
 	{
@@ -145,7 +150,7 @@ void Client::makeOrder()
 	}
 	catch (std::invalid_argument& ia)
 	{
-		std::cout << ia.what();
+		throw std::invalid_argument(ia.what());
 	}
 	try
 	{
@@ -153,7 +158,7 @@ void Client::makeOrder()
 	}
 	catch (std::invalid_argument& ia)
 	{
-		std::cout << ia.what();
+		throw std::invalid_argument(ia.what());
 	}
 	try
 	{
@@ -161,6 +166,6 @@ void Client::makeOrder()
 	}
 	catch (std::invalid_argument& ia)
 	{
-		std::cout << ia.what();
+		throw std::invalid_argument(ia.what());
 	}
 }
