@@ -33,13 +33,8 @@ Pizza* DominosRestaurant::createPizza(std::string pizza)
 	}
 	else
 	{
-		throw std::invalid_argument(pizza + " pizza doesn't exist!");
+		throw std::invalid_argument("A pizza with name " + pizza + " doesn't exist!");
 	}
-}
-
-Pizza* DominosRestaurant::getMostOrderedPizza()
-{
-	return new DominosMargaritta();
 }
 
 void DominosRestaurant::showMenu()

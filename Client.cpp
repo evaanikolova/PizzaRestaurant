@@ -32,7 +32,7 @@ void Client::chooseRestaurant()
 	}
 	else
 	{
-		throw std::invalid_argument("Number doesn't exist!");
+		throw std::invalid_argument("A restaurant with number " + std::to_string(restaurantNumber) + " doesn't exist!");
 	}
 }
 
@@ -139,29 +139,8 @@ void Client::makeOrder()
 	try
 	{
 		this->chooseRestaurant();
-	}
-	catch (std::invalid_argument& ia)
-	{
-		throw std::invalid_argument(ia.what());
-	}
-	try
-	{
 		this->choosePizza();
-	}
-	catch (std::invalid_argument& ia)
-	{
-		throw std::invalid_argument(ia.what());
-	}
-	try
-	{
 		this->addToppings();
-	}
-	catch (std::invalid_argument& ia)
-	{
-		throw std::invalid_argument(ia.what());
-	}
-	try
-	{
 		this->confirmOrder();
 	}
 	catch (std::invalid_argument& ia)

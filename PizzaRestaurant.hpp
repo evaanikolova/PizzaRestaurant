@@ -12,7 +12,6 @@ public:
 	virtual ~PizzaRestaurant();
 
 	virtual Pizza* createPizza(std::string pizzaName) = 0;
-	virtual Pizza* getMostOrderedPizza() = 0;
 	virtual Pizza* addTopping(Pizza* pizza, std::string topping);
 
 	virtual void showMenu() = 0;

@@ -13,7 +13,6 @@ public:
 	virtual ~MrPizzaRestaurant();
 
 	virtual Pizza* createPizza(std::string pizzaName) override;
-	virtual Pizza* getMostOrderedPizza() override;
 
 	virtual void showMenu() override;
 

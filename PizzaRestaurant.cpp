@@ -32,7 +32,7 @@ Pizza* PizzaRestaurant::addTopping(Pizza* pizza, std::string topping)
 	}
 	else
 	{
-		throw std::invalid_argument(topping + " topping doesn't exist!");
+		throw std::invalid_argument("A topping with name " + topping + " doesn't exist!");
 	}
 }
 

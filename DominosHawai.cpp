@@ -1,6 +1,6 @@
 #include "DominosHawai.hpp"
 
-DominosHawai::DominosHawai() : description("Hawai /tomato Sauce, mozzarella, smoked ham, pineapple/"), price(10.90)
+DominosHawai::DominosHawai() : description("Hawai /tomato sauce, mozzarella, smoked ham, pineapple/"), price(10.90)
 {}
 
 std::string DominosHawai::getDescription()
