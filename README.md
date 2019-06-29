@@ -4,6 +4,6 @@ This is a simple console application for a university assignment for ordering vi
 # Commands
 •	chooseRestaurant() - a client can choose the restaurant he wants to order from by typing the restaurant's number.
 
-•	choosePizza() - then, he will be given a menu for the chosen restaurant and he can select his prefered pizza.
+•	choosePizza() - then, he will be given a menu for the chosen restaurant and he can select his preferred pizza.
 
 •	addToppings() - if the client wants, he can add different toppings to his pizza.

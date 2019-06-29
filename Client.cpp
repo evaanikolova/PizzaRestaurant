@@ -15,13 +15,9 @@ Client::~Client()
 	delete pizza;
 }
 
-void Client::chooseRestaurant()
+//checks for the existence of the restaurant
+void Client::findRestaurant(int restaurantNumber)
 {
-	this->showRestaurants();
-
-	unsigned short int restaurantNumber;
-	std::cin >> restaurantNumber;
-
 	if (restaurantNumber == 1)
 	{
 		this->restaurant = new DominosRestaurant();
@@ -32,35 +28,62 @@ void Client::chooseRestaurant()
 	}
 	else
 	{
-		throw std::invalid_argument("A restaurant with number " + std::to_string(restaurantNumber) + " doesn't exist!");
+		throw std::invalid_argument("A restaurant with this number doesn't exist!");
+	}
+}
+
+void Client::chooseRestaurant()
+{
+	while (true)
+	{
+		this->showRestaurants();
+
+		unsigned short int restaurantNumber;
+		std::cin >> restaurantNumber;
+
+		try
+		{
+			findRestaurant(restaurantNumber);
+			break;
+		}
+		catch(std::invalid_argument& ia)
+		{
+			std::cout << ia.what();
+			std::cout << " We weren't able to find the selected restaurant. Try again." << std::endl;
+		}
 	}
 }
 
 void Client::choosePizza()
 {
-	this->restaurant->showMenu();
-
-	std::string pizzaName;
-	std::cin >> pizzaName;
-
-	try
+	while (true)
 	{
-		this->pizza = this->restaurant->createPizza(pizzaName);
-		std::cout << "Cooking pizza " + pizzaName + "..." << std::endl;
-		sleep(3);
-	}
-	catch (std::invalid_argument& ia)
-	{
-		throw std::invalid_argument(ia.what());
+		this->restaurant->showMenu();
+
+		std::string pizzaName;
+		std::cin >> pizzaName;
+
+		try
+		{
+			this->pizza = this->restaurant->createPizza(pizzaName);
+			std::cout << "Cooking pizza " + pizzaName + "..." << std::endl;
+			sleep(3);
+			break;
+		}
+		catch (std::invalid_argument& ia)
+		{
+			std::cout << ia.what();
+			std::cout << " We weren't able to select the preferred pizza. Try again." << std::endl;
+		}
 	}
 }
 
 void Client::addToppings()
-{
-	char addMoreToppings;
-	
-	while(true)
+{	
+	while (true)
 	{
+		char addMoreToppings;
+
 		std::cout << "Would you like to add some more toppings to your pizza? Type y or n: ";
 		std::cin >> addMoreToppings;
 
@@ -84,8 +107,9 @@ void Client::addToppings()
 			}
 			catch (std::invalid_argument& ia)
 			{
-				throw std::invalid_argument(ia.what());
-			}			
+				std::cout << ia.what();
+				std::cout << " We weren't able to add the preferred topping. Try again" << std::endl;
+			}
 		}
 		else if (addMoreToppings == 'n')
 		{
@@ -94,7 +118,7 @@ void Client::addToppings()
 		}
 		else
 		{
-			throw std::invalid_argument("You should type y or n!");
+			std::cout << "You should type y or n!" << std::endl;
 		}
 	}
 }
@@ -106,23 +130,28 @@ void Client::checkOrder()
 
 void Client::confirmOrder()
 {
-	this->checkOrder();
-	std::cout << "This is your final order. Are you sure? Type y or n: ";
+	while (true)
+	{
+		this->checkOrder();
+		std::cout << "This is your final order. Are you sure? Type y or n: ";
 
-	char finishOrder;
-	std::cin >> finishOrder;
+		char finishOrder;
+		std::cin >> finishOrder;
 
-	if (finishOrder == 'y')
-	{
-		std::cout << "Bon Apeti!" << std::endl;
-	}
-	else if (finishOrder == 'n')
-	{
-		std::cout << "And all of this for nothing..." << std::endl;
-	}
-	else
-	{
-		throw std::invalid_argument("You should type y or n!");
+		if (finishOrder == 'y')
+		{
+			std::cout << "Bon Apeti!" << std::endl;
+			break;
+		}
+		else if (finishOrder == 'n')
+		{
+			std::cout << "And all of this for nothing..." << std::endl;
+			break;
+		}
+		else
+		{
+			std::cout << "You should type y or n!" << std::endl;
+		}
 	}
 }
 
@@ -136,15 +165,8 @@ void Client::showRestaurants()
 
 void Client::makeOrder()
 {
-	try
-	{
-		this->chooseRestaurant();
-		this->choosePizza();
-		this->addToppings();
-		this->confirmOrder();
-	}
-	catch (std::invalid_argument& ia)
-	{
-		throw std::invalid_argument(ia.what());
-	}
+	this->chooseRestaurant();
+	this->choosePizza();
+	this->addToppings();
+	this->confirmOrder();	
 }

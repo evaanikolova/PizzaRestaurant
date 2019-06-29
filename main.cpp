@@ -3,6 +3,7 @@
 
 void welcome()
 {
+	std::cout << "\t\t\t\t\tVIRTUAL PIZZA\n";
 	std::cout << "Hey! Welcome to our virtual ordering of pizza! Would you like to make an order? Type y or n: ";
 
 	char command;
@@ -11,15 +12,7 @@ void welcome()
 	if (command == 'y')
 	{
 		Client client;
-
-		try
-		{
-			client.makeOrder();
-		}
-		catch (std::invalid_argument& ia)
-		{
-			throw std::invalid_argument(ia.what());
-		}
+		client.makeOrder();
 	}
 	else if (command == 'n')
 	{

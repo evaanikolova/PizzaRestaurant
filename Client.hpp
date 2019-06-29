@@ -18,6 +18,7 @@ private:
 	PizzaRestaurant* restaurant;
 	Pizza* pizza;
 
+	void findRestaurant(int restaurantNumber);
 	void chooseRestaurant();
 	void choosePizza();
 	void addToppings();
