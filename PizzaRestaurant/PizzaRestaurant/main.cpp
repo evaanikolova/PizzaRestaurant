@@ -35,5 +35,6 @@ int main()
 		std::cout << ia.what();
 	}
 
+	system("pause");
 	return 0;
 }

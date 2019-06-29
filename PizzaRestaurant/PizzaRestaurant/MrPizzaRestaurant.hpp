@@ -15,7 +15,6 @@ public:
 	virtual Pizza* createPizza(std::string pizzaName) override;
 
 	virtual void showMenu() override;
-
 private:
 	std::unordered_map<std::string, Pizza*> pizzas;
 

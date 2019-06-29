@@ -7,7 +7,7 @@ HeinzKetchup::HeinzKetchup(Pizza* pizza)
 
 HeinzKetchup::~HeinzKetchup()
 {
-	delete pizza;
+	delete this->pizza;
 }
 
 std::string HeinzKetchup::getDescription()

@@ -13,7 +13,7 @@ public:
 	virtual std::string getDescription() override;
 	virtual double getPrice() override;
 private:
-	Pizza * pizza;
+	Pizza* pizza;
 };
 
 #endif

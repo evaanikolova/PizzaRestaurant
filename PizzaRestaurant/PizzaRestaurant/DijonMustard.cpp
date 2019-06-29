@@ -7,7 +7,7 @@ DijonMustard::DijonMustard(Pizza* pizza)
 
 DijonMustard::~DijonMustard()
 {
-	delete pizza;
+	delete this->pizza;
 }
 
 std::string DijonMustard::getDescription()

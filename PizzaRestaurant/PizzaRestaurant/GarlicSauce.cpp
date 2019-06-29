@@ -7,7 +7,7 @@ GarlicSauce::GarlicSauce(Pizza* pizza)
 
 GarlicSauce::~GarlicSauce()
 {
-	delete pizza;
+	delete this->pizza;
 }
 
 std::string GarlicSauce::getDescription()
