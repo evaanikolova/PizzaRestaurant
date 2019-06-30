@@ -5,11 +5,6 @@ DijonMustard::DijonMustard(Pizza* pizza)
 	this->pizza = pizza;
 }
 
-DijonMustard::~DijonMustard()
-{
-	delete this->pizza;
-}
-
 std::string DijonMustard::getDescription()
 {
 	return this->pizza->getDescription() + ", dijon mustard";

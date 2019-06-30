@@ -8,7 +8,7 @@ class HeinzKetchup : public ToppingsDecorator
 public:
 	HeinzKetchup() = default;
 	HeinzKetchup(Pizza* pizza);
-	~HeinzKetchup();
+	~HeinzKetchup() = default;
 
 	virtual std::string getDescription() override;
 	virtual double getPrice() override;

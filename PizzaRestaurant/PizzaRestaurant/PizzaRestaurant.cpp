@@ -24,7 +24,7 @@ void PizzaRestaurant::initToppings(Pizza* pizza)
 
 Pizza* PizzaRestaurant::addTopping(Pizza* pizza, std::string topping)
 {
-	initToppings(pizza);
+	this->initToppings(pizza);
 
 	if (toppings.find(topping) != toppings.end())
 	{

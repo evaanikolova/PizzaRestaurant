@@ -8,7 +8,7 @@ class DijonMustard : public ToppingsDecorator
 public:
 	DijonMustard() = default;
 	DijonMustard(Pizza* pizza);
-	~DijonMustard();
+	~DijonMustard() = default;
 
 	virtual std::string getDescription() override;
 	virtual double getPrice() override;

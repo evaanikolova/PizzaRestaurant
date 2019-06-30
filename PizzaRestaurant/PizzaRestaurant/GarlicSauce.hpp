@@ -8,7 +8,7 @@ class GarlicSauce : public ToppingsDecorator
 public:
 	GarlicSauce() = default;
 	GarlicSauce(Pizza* pizza);
-	~GarlicSauce();
+	~GarlicSauce() = default;
 
 	virtual std::string getDescription() override;
 	virtual double getPrice() override;

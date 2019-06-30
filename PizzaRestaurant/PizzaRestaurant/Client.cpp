@@ -12,7 +12,6 @@ Client::Client() : restaurant(nullptr), pizza(nullptr)
 Client::~Client()
 {
 	delete restaurant;
-	delete pizza;
 }
 
 //checks for the existence of the restaurant
@@ -130,6 +129,8 @@ void Client::checkOrder()
 
 void Client::confirmOrder()
 {
+	while (true)
+	{
 		this->checkOrder();
 		std::cout << "This is your final order. Are you sure? Type y or n: ";
 
@@ -139,17 +140,18 @@ void Client::confirmOrder()
 		if (finishOrder == 'y')
 		{
 			std::cout << "Bon Apeti!" << std::endl;
-			//break;
+			break;
 		}
 		else if (finishOrder == 'n')
 		{
 			std::cout << "And all of this for nothing..." << std::endl;
-			//break;
+			break;
 		}
 		else
 		{
 			std::cout << "You should type y or n!" << std::endl;
 		}
+	}
 }
 
 void Client::showRestaurants()

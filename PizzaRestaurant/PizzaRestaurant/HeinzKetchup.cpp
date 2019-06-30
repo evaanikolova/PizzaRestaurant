@@ -5,11 +5,6 @@ HeinzKetchup::HeinzKetchup(Pizza* pizza)
 	this->pizza = pizza;
 }
 
-HeinzKetchup::~HeinzKetchup()
-{
-	delete this->pizza;
-}
-
 std::string HeinzKetchup::getDescription()
 {
 	return this->pizza->getDescription() + ", heinz ketchup";

@@ -5,11 +5,6 @@ GarlicSauce::GarlicSauce(Pizza* pizza)
 	this->pizza = pizza;
 }
 
-GarlicSauce::~GarlicSauce()
-{
-	delete this->pizza;
-}
-
 std::string GarlicSauce::getDescription()
 {
 	return this->pizza->getDescription() + ", garlic sauce";
